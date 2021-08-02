@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TechSelectOptions from '../techs/TechSelectOptions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addLog } from '../../actions/logActions';
@@ -17,7 +18,7 @@ const AddLogModal = ({ addLog }) => {
 				message,
 				attention,
 				tech,
-				date: new Date(),
+				date: new Date()
 			};
 
 			addLog(newLog);
@@ -41,7 +42,7 @@ const AddLogModal = ({ addLog }) => {
 							type='text'
 							name='message'
 							value={message}
-							onChange={(e) => setMessage(e.target.value)}
+							onChange={e => setMessage(e.target.value)}
 						/>
 						<label htmlFor='message' className=' active'>
 							Log Message
@@ -55,14 +56,12 @@ const AddLogModal = ({ addLog }) => {
 							name='tech'
 							value={tech}
 							className='browser-default'
-							onChange={(e) => setTech(e.target.value)}
+							onChange={e => setTech(e.target.value)}
 						>
 							<option value='' disabled>
 								Select Technician
 							</option>
-							<option value='John Doe'>John Doe</option>
-							<option value='Sam Smith'>Sam Smith</option>
-							<option value='Sara Wilson'>Sara Wilson</option>
+							<TechSelectOptions />
 						</select>
 					</div>
 				</div>
@@ -76,7 +75,7 @@ const AddLogModal = ({ addLog }) => {
 									className='filled-in'
 									checked={attention}
 									value={attention}
-									onChange={(e) => setAttention(!attention)}
+									onChange={e => setAttention(!attention)}
 								/>
 								<span>Needs Attention</span>
 							</label>
@@ -99,12 +98,12 @@ const AddLogModal = ({ addLog }) => {
 };
 
 AddLogModal.propTypes = {
-	addLog: PropTypes.func.isRequired,
+	addLog: PropTypes.func.isRequired
 };
 
 const modalStyle = {
 	width: '75%',
-	height: '75%',
+	height: '75%'
 };
 
 export default connect(null, { addLog })(AddLogModal);
