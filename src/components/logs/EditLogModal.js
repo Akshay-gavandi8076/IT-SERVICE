@@ -32,7 +32,7 @@ const EditLogModal = ({ current, updateLog }) => {
 
 			updateLog(updLog);
 			M.toast({ html: `Log updated by ${tech}` });
-			// CLear Fields vanillawebprojects  bradtraversy
+
 			setMessage('');
 			setTech('');
 			setAttention(false);
